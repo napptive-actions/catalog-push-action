@@ -58,12 +58,8 @@ fi
 appFullName="${namespace}/${appName}:${tag}"
 echo "appFullName: ${appFullName}"
 playground catalog push ${appFullName} ${appPath} --debug
-echo "PROBANDO..."
-#if [[ $? -ne 0 ]]; then
-#    exit -1
-#fi
-
-playground catalog list
-# Do not wait until the app will be removed -> if this action is required -> add a new playground action
+if [[ $? -ne 0 ]]; then
+    exit -1
+fi
 
 

@@ -2,31 +2,39 @@
 
 This repo contains a github action that allows to upload an application into Napptive catalog.
 
+## What is Napptive Catalog
+
+Napptive catalog is a catalog of applications ready to be deployed. The applications in the catalog are available to all users of the platform.
+
+## References:
+* [Catalog documentation](https://docs.napptive.com/Catalog.html)
+* [Catalog repository](https://github.com/napptive/catalog-manager)
+
 ## Environment variable
 
 ### `PLAYGROUND_PAT`
 
-This environment variable contains a Napptive Personal Access Token. Visit [Napptive documentation](https://docs.napptive.com/guides/Using_personal_access_tokens.html) to know how to create it.
+This environment variable contains a [Napptive Personal Access Token]((https://docs.napptive.com/guides/Using_personal_access_tokens.html)) used to login to the platform.
 
 ## Inputs
 
 ### `applicationPath`
 
-The path where the files of the application to be uploaded are. Please, review documentation to understand the applications in [Napptive Catalog](https://docs.napptive.com/catalog/The_application_catalog.html)
+The path that contains the yaml files of the application to be uploaded.
 
 ### `namespace`
 
-The namespace where the application is going to be udpated.
+The namespace where the application is going to be udpated. The applications within the catalog are organized in different namespaces. You can upload apps to your account namespace. The application will be named following the following notation *`namespace/appName:tag`*.
 
 ### `applicationName`
 
-With the application name.
+With the application name. In Napptive Catalog, the name of the application follows the following convention: *`namespace/appName:tag`*
 
 ### `tag`
 
-With the application version. This input is __required__, __latest__ by default.
+With the application tag. This input is __required__, __latest__ by default.
 
-The Application in Napptive Catalog will be named as `namespace/appName:tag`
+The Application in Napptive Catalog will be named as *`namespace/appName:tag`*
 
 ## Example usage
 
