@@ -53,6 +53,7 @@ if [[ $? -ne 0 ]]; then
     exit -1
 fi
 
+
 # push the app
 #   playground catalog push <namespace/appName[:tag]> <application_path> [flags]
 appFullName="${namespace}/${appName}:${tag}"

@@ -15,6 +15,9 @@ inputs:
     description: 'The application version'
     required: true
     default: 'latest'
+  config:
+    description: 'To use a custom YAML file to change the target playground installation'
+    required: false
 runs:
   using: 'docker'
   image: 'Dockerfile'
@@ -23,6 +26,7 @@ runs:
     - ${{ inputs.namespace }}
     - ${{ inputs.applicationName }}
     - ${{ inputs.tag }}
+    - ${{ inputs.config }}
 branding:
   icon: 'play'  
   color: 'blue'
