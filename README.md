@@ -53,7 +53,7 @@ jobs:
       # Get a copy of the repo.
       - uses: actions/checkout@v2
       # Push a new version of the application
-      - uses: napptive-actions/playground-catalog-push@master
+      - uses: napptive-actions/playground-catalog-push@v2.2.1
         env:
           PLAYGROUND_PAT: ${{ secrets.PLAYGROUND_PAT }}
         with:
