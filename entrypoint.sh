@@ -34,12 +34,6 @@ if [[ -z "$tag" ]]; then
 fi
 #############################
 
-echo "appPath: ${appPath}" 
-echo "namespace: ${namespace}" 
-echo "appName: ${appName}" 
-echo "tag: ${tag}" 
-echo "configFile: ${configFile}" 
-
 # if there is a configFile...
 if [[ -n "$configFile" ]]; then
     mkdir -p ${HOME}/.napptive
@@ -48,7 +42,7 @@ fi
 
 # Step 1. Login in to the platform
 # Login into the platform (with pat flag)
-playground login --pat --debug
+playground login --pat
 if [[ $? -ne 0 ]]; then
     exit -1
 fi
@@ -57,8 +51,7 @@ fi
 # push the app
 #   playground catalog push <namespace/appName[:tag]> <application_path> [flags]
 appFullName="${namespace}/${appName}:${tag}"
-echo "appFullName: ${appFullName}"
-playground catalog push ${appFullName} ${appPath} --debug
+playground catalog push ${appFullName} ${appPath} 
 if [[ $? -ne 0 ]]; then
     exit -1
 fi
