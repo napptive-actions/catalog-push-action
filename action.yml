@@ -15,7 +15,7 @@ inputs:
     description: 'The application version'
     required: true
     default: 'latest'
-  config:
+  playgroundConfigFile:
     description: 'To use a custom YAML file to change the target playground installation'
     required: false
 runs:
@@ -26,7 +26,7 @@ runs:
     - ${{ inputs.namespace }}
     - ${{ inputs.applicationName }}
     - ${{ inputs.tag }}
-    - ${{ inputs.config }}
+    - ${{ inputs.playgroundConfigFile }}
 branding:
   icon: 'play'  
   color: 'blue'
