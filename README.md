@@ -1,10 +1,10 @@
 # CATALOG-PUSH-ACTION
 
-This repo contains a github action that allows to upload an application into Napptive catalog.
+This repo contains a github action that allows to upload an application into the Napptive catalog.
 
 ## What is Napptive Catalog
 
-Napptive catalog is a catalog of applications ready to be deployed. The applications in the catalog are available to all users of the platform.
+Napptive catalog contains a collection of applications ready to be deployed. The applications in the catalog are available to all users of the platform.
 
 ## References
 
@@ -40,7 +40,7 @@ The Application in Napptive Catalog will be named as *`namespace/appName:tag`*
 ### `playgroundConfigFile`
 
 To use a custom YAML file to change the target playground installation. No __required__
-This file contains a playground installation configuration. Visit [napptive documentation](https://docs.napptive.com/playground/On_premise_configuration.html#configuration-file) to know how to create it.
+This file contains a playground installation configuration. Visit [documentation](https://docs.napptive.com/playground/On_premise_configuration.html#configuration-file) for an example.
 
 ## Example usage
 
