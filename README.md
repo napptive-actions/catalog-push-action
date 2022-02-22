@@ -56,13 +56,13 @@ jobs:
       # Get a copy of the repo.
       - uses: actions/checkout@v2
       # Push a new version of the application
-      - uses: napptive-actions/playground-catalog-push@v2.2.1
+      - uses: napptive-actions/catalog-push-action@v2.2.1
         env:
           PLAYGROUND_PAT: ${{ secrets.PLAYGROUND_PAT }}
         with:
-          applicationName: ./app/
+          applicationPath: ./app/
           namespace: "napptive"
-          application_name: "drawio"
+          applicationName: "drawio"
           tag: "14.3.0"
 
 ```
