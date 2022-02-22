@@ -39,7 +39,7 @@ fi
 
 # Step 1. Login in to the platform
 # Login into the platform (with pat flag)
-/playground login --pat
+/app/playground login --pat
 if [[ $? -ne 0 ]]; then
     exit -1
 fi
@@ -49,7 +49,7 @@ fi
 #   playground catalog push <namespace/appName[:tag]> <application_path> [flags]
 appFullName="${namespace}/${appName}:${tag}"
 echo "Pushing ${appFullName}"
-/playground catalog push ${appFullName} ${appPath} 
+/app/playground catalog push ${appFullName} ${appPath} 
 if [[ $? -ne 0 ]]; then
     exit -1
 fi
