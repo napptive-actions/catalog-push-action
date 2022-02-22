@@ -37,10 +37,6 @@ if [[ -n "$configFile" ]]; then
     cp ${configFile} ${HOME}/.napptive/.playground.yaml
 fi
 
-ls
-pwd
-ls /app
-
 # Step 1. Login in to the platform
 # Login into the platform (with pat flag)
 /app/playground login --pat
