@@ -12,12 +12,9 @@ appName=$3
 tag=$4
 configFile=$5
 
-## add actual dir to the path to allow execute the playground command
-export PATH=$PATH:./
-
 ## check args
 if [[ -z "$appPath" ]]; then
-    echo "application_path can not be empty"
+    echo "applicationPath can not be empty"
     exit -1
 fi
 if [[ -z "$namespace" ]]; then
@@ -25,7 +22,7 @@ if [[ -z "$namespace" ]]; then
     exit -1
 fi
 if [[ -z "$appName" ]]; then
-    echo "application_name can not be empty"
+    echo "applicationName can not be empty"
     exit -1
 fi
 if [[ -z "$tag" ]]; then
@@ -42,7 +39,7 @@ fi
 
 # Step 1. Login in to the platform
 # Login into the platform (with pat flag)
-playground login --pat
+/playground login --pat
 if [[ $? -ne 0 ]]; then
     exit -1
 fi
@@ -51,7 +48,8 @@ fi
 # push the app
 #   playground catalog push <namespace/appName[:tag]> <application_path> [flags]
 appFullName="${namespace}/${appName}:${tag}"
-playground catalog push ${appFullName} ${appPath} 
+echo "Pushing ${appFullName}"
+/playground catalog push ${appFullName} ${appPath} 
 if [[ $? -ne 0 ]]; then
     exit -1
 fi
