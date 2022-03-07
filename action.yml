@@ -2,6 +2,9 @@ name: 'Napptive Catalog push'
 author: 'Napptive'
 description: 'Push an application into Napptive catalog.'
 inputs:
+    description: 'Debug flag in commands'
+    required: false
+    default: false
   applicationPath:
     description: 'The path of the application to be uploaded'
     required: true
@@ -22,6 +25,7 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
+    - ${{ inputs.debug }}
     - ${{ inputs.applicationPath }}
     - ${{ inputs.namespace }}
     - ${{ inputs.applicationName }}

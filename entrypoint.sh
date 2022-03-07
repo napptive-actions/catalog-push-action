@@ -6,11 +6,12 @@
 ######################################################################################
 
 ## get args
-appPath=$1
-namespace=$2
-appName=$3
-tag=$4
-configFile=$5
+debug=$1
+appPath=$2
+namespace=$3
+appName=$4
+tag=$5
+configFile=$6
 
 ## check args
 if [[ -z "$appPath" ]]; then
@@ -33,13 +34,17 @@ fi
 
 # if there is a configFile...
 if [[ -n "$configFile" ]]; then
+    echo "using custom installation"
     mkdir -p ${HOME}/.napptive
     cp ${configFile} ${HOME}/.napptive/.playground.yaml
+    if [[ $? -ne 0 ]]; then
+      exit 1
+    fi
 fi
 
 # Step 1. Login in to the platform
 # Login into the platform (with pat flag)
-/app/playground login --pat
+/app/playground login --pat --debug=$debug
 if [[ $? -ne 0 ]]; then
     exit 1
 fi
@@ -49,7 +54,7 @@ fi
 #   playground catalog push <namespace/appName[:tag]> <application_path> [flags]
 appFullName="${namespace}/${appName}:${tag}"
 echo "Pushing ${appFullName}"
-/app/playground catalog push ${appFullName} ${appPath} 
+/app/playground catalog push ${appFullName} ${appPath} --debug=$debug
 if [[ $? -ne 0 ]]; then
     exit 1
 fi
