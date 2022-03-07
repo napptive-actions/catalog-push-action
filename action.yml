@@ -3,7 +3,7 @@ author: 'Napptive'
 description: 'Push an application into Napptive catalog.'
 inputs:
     description: 'Debug flag in commands'
-    required: true
+    required: false
     default: false
   applicationPath:
     description: 'The path of the application to be uploaded'
