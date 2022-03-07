@@ -34,7 +34,7 @@ fi
 
 # if there is a configFile...
 if [[ -n "$configFile" ]]; then
-    echo "using custom installation"
+    echo "using custom installation from $configFile to ${HOME}/.napptive/.playground.yaml"
     mkdir -p ${HOME}/.napptive
     cp ${configFile} ${HOME}/.napptive/.playground.yaml
     if [[ $? -ne 0 ]]; then
