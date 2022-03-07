@@ -2,6 +2,7 @@ name: 'Napptive Catalog push'
 author: 'Napptive'
 description: 'Push an application into Napptive catalog.'
 inputs:
+  debug:
     description: 'Debug flag in commands'
     required: false
     default: false
