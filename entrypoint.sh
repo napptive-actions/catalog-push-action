@@ -32,9 +32,6 @@ if [[ -z "$tag" ]]; then
 fi
 #############################
 
-# configurationPath with the path where the installation is, empty by default
-configurationPath=""
-
 # if there is a configFile...
 if [[ -n "$configFile" ]]; then
     echo "using custom installation from $configFile "    
@@ -43,12 +40,13 @@ if [[ -n "$configFile" ]]; then
     if [[ $? -ne 0 ]]; then
       exit 1
     fi
-    configurationPath="/napptive/"
+    export PLAYGROUND_CONFIG=/napptive/
+    echo "PLAYGROUND_CONFIG env added: $PLAYGROUND_CONFIG"    
 fi
 
 # Step 1. Login in to the platform
 # Login into the platform (with pat flag)
-/app/playground login --pat --debug=$debug --configurationPath=$configurationPath
+/app/playground login --pat --debug=$debug 
 if [[ $? -ne 0 ]]; then
     exit 1
 fi
@@ -58,7 +56,7 @@ fi
 #   playground catalog push <namespace/appName[:tag]> <application_path> [flags]
 appFullName="${namespace}/${appName}:${tag}"
 echo "Pushing ${appFullName}"
-/app/playground catalog push ${appFullName} ${appPath} --debug=$debug --configurationPath=$configurationPath
+/app/playground catalog push ${appFullName} ${appPath} --debug=$debug 
 if [[ $? -ne 0 ]]; then
     exit 1
 fi
