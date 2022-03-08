@@ -32,15 +32,18 @@ if [[ -z "$tag" ]]; then
 fi
 #############################
 
+# configurationPath with the path where the installation is, empty by default
+configurationPath=""
+
 # if there is a configFile...
 if [[ -n "$configFile" ]]; then
-    echo "using custom installation from $configFile to ${HOME}/.napptive/.playground.yaml"
-    cp ${configFile} ./.playground.yaml
-    mkdir -p ${HOME}/.napptive
-    cp ${configFile} ${HOME}/.napptive/.playground.yaml
+    echo "using custom installation from $configFile "    
+    mkdir -p /napptive
+    cp ${configFile} /napptive/.playground.yaml
     if [[ $? -ne 0 ]]; then
       exit 1
     fi
+    configurationPath="/napptive/"
 fi
 
 # Step 1. Login in to the platform
