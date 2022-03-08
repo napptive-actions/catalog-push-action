@@ -48,7 +48,7 @@ fi
 
 # Step 1. Login in to the platform
 # Login into the platform (with pat flag)
-/app/playground login --pat --debug=$debug
+/app/playground login --pat --debug=$debug --configurationPath=$configurationPath
 if [[ $? -ne 0 ]]; then
     exit 1
 fi
@@ -58,7 +58,7 @@ fi
 #   playground catalog push <namespace/appName[:tag]> <application_path> [flags]
 appFullName="${namespace}/${appName}:${tag}"
 echo "Pushing ${appFullName}"
-/app/playground catalog push ${appFullName} ${appPath} --debug=$debug
+/app/playground catalog push ${appFullName} ${appPath} --debug=$debug --configurationPath=$configurationPath
 if [[ $? -ne 0 ]]; then
     exit 1
 fi
